@@ -10,7 +10,7 @@ use hashbangcode\php3d\Vertex;
 class MatrixCalculationsTest extends TestCase {
 
   public function testMatrixMultiplications() {
-    $vertex = new Vertex(50, 50, 50);
+    $vertex = new Vertex(2, 4, 6);
     $matrix = new Matrix();
     $matrix->setMatrix([
       [2, 0, 0],
@@ -19,8 +19,8 @@ class MatrixCalculationsTest extends TestCase {
     ]);
     $newVertex = MatrixCalculations::multiply($vertex, $matrix);
 
-    $this->assertEquals(100, $newVertex->x);
-    $this->assertEquals(100, $newVertex->y);
-    $this->assertEquals(100, $newVertex->z);
+    $this->assertEquals(4, $newVertex->x);
+    $this->assertEquals(8, $newVertex->y);
+    $this->assertEquals(12, $newVertex->z);
   }
 }

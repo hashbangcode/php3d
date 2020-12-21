@@ -2,7 +2,13 @@
 
 namespace hashbangcode\php3d;
 
+/**
+ * Class Matrix.
+ *
+ * @package hashbangcode\php3d
+ */
 class Matrix {
+
   protected $matrix;
 
   public function setMatrix(array $matrix) {
