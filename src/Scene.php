@@ -58,4 +58,38 @@ class Scene implements \Iterator {
     $this->position = 0;
   }
 
+
+  /**
+   * Sort the scene.
+   *
+   * @param string $sortBy
+   *   The vertex property to sort by.
+   *
+   * @return $this
+   *   The current object.
+   */
+  public function sort($sortBy = 'z') {
+    usort($this->scene, function ($a, $b) use ($sortBy) {
+
+      switch ($sortBy) {
+        case 'x':
+          $aValue = $a->x;
+          $bValue = $b->x;
+          break;
+        case 'y':
+          $aValue = $a->y;
+          $bValue = $b->y;
+          break;
+        case 'z':
+        default:
+          $aValue = $a->z;
+          $bValue = $b->z;
+          break;
+      }
+
+      return $aValue <=> $bValue;
+    });
+
+    return $this;
+  }
 }
